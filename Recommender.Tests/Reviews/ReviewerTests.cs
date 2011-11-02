@@ -47,7 +47,7 @@ namespace Recommender.Tests.Reviews
         {
             var r1 = ReviewerBuilder.BuildOneReviewMax();
             var r2 = ReviewerBuilder.BuildOneReviewMin();
-            Assert.AreEqual(1, r1.SimilarItems(r2.Reviews).Count);
+            Assert.AreEqual(1, r1.SimilarReviews(r2.Reviews).Count);
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace Recommender.Tests.Reviews
         {
             var r1 = ReviewerBuilder.BuildReviewer1();
             var r2 = ReviewerBuilder.BuildReviewer1();
-            Assert.AreEqual(6, r1.SimilarItems(r2.Reviews).Count);
+            Assert.AreEqual(6, r1.SimilarReviews(r2.Reviews).Count);
         }
     }
 }
