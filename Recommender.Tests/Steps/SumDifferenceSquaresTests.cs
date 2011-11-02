@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
+using Recommender.Data;
 using Recommender.Steps;
 
 namespace Recommender.Tests.Steps
@@ -10,33 +11,30 @@ namespace Recommender.Tests.Steps
         [Test]
         public void ShouldReturnZeroOnEmpty()
         {
-            var emptyReviewer = new Dictionary<string, double>();
+            var emptyReviewer = ReviewerBuilder.BuildReviewerWithNoReviews();
             var similarReviews = new List<string>();
-            var sumDifferenceSquares = new SumDifferenceSquares(similarReviews, emptyReviewer, emptyReviewer).Calculate();
+            var sumDifferenceSquares = new SumDifferenceSquares(similarReviews, emptyReviewer.Reviews, emptyReviewer.Reviews).Calculate();
             Assert.AreEqual(0.0, sumDifferenceSquares);
         }
 
         [Test]
         public void ShouldReturnZeroWithIdenticalReviews()
         {
-            var highScoreReviewer = new Dictionary<string, double>();
+            var highScoreReviewer = ReviewerBuilder.BuildOneReviewMax();
             var similarReviews = new List<string>();
-            highScoreReviewer.Add("C# in Depth", 5);
             similarReviews.Add("C# in Depth");
-            var sumDifferenceSquares = new SumDifferenceSquares(similarReviews, highScoreReviewer, highScoreReviewer).Calculate();
+            var sumDifferenceSquares = new SumDifferenceSquares(similarReviews, highScoreReviewer.Reviews, highScoreReviewer.Reviews).Calculate();
             Assert.AreEqual(0.0, sumDifferenceSquares);
         }
 
         [Test]
         public void ShouldCalculateTheSumOfTheSquareOfTheDifferenceOfASingleSimilarReview()
         {
-            var highScoreReviewer = new Dictionary<string, double>();
-            var lowScoreReviewer = new Dictionary<string, double>();
+            var highScoreReviewer = ReviewerBuilder.BuildOneReviewMax();
+            var lowScoreReviewer = ReviewerBuilder.BuildOneReviewMid();
             var similarReviews = new List<string>();
-            highScoreReviewer.Add("C# in Depth", 5);
-            lowScoreReviewer.Add("C# in Depth", 3);
             similarReviews.Add("C# in Depth");
-            var sumDifferenceSquares = new SumDifferenceSquares(similarReviews, highScoreReviewer, lowScoreReviewer).Calculate();
+            var sumDifferenceSquares = new SumDifferenceSquares(similarReviews, highScoreReviewer.Reviews, lowScoreReviewer.Reviews).Calculate();
             Assert.AreEqual(4.0, sumDifferenceSquares);
         }
 
