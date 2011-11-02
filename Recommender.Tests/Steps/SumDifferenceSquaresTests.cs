@@ -18,6 +18,16 @@ namespace Recommender.Tests.Steps
         }
 
         [Test]
+        public void ShouldReturnZeroWithNoSimilarReviews()
+        {
+            var highScoreReviewer = ReviewerBuilder.BuildAllMaxScores();
+            var lowScoreReviewer = ReviewerBuilder.BuildAllMidScores();
+            var similarReviews = new List<string>();
+            var sumDifferenceSquares = new SumDifferenceSquares(similarReviews, highScoreReviewer.Reviews, lowScoreReviewer.Reviews).Calculate();
+            Assert.AreEqual(0.0, sumDifferenceSquares);
+        }
+
+        [Test]
         public void ShouldReturnZeroWithIdenticalReviews()
         {
             var highScoreReviewer = ReviewerBuilder.BuildOneReviewMax();
