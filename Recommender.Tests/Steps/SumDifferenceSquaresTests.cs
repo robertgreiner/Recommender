@@ -38,5 +38,18 @@ namespace Recommender.Tests.Steps
             Assert.AreEqual(4.0, sumDifferenceSquares);
         }
 
+        [Test]
+        public void ShouldCalculateTheSumOfTheSquareOfTheDifferenceOfMultipleSimilarReviews()
+        {
+            var highScoreReviewer = ReviewerBuilder.BuildAllMaxScores();
+            var lowScoreReviewer = ReviewerBuilder.BuildAllMidScores();
+            var similarReviews = new List<string>();
+            similarReviews.Add("C# in Depth");
+            similarReviews.Add("Refactoring");
+            similarReviews.Add("Clean Code");
+            var sumDifferenceSquares = new SumDifferenceSquares(similarReviews, highScoreReviewer.Reviews, lowScoreReviewer.Reviews).Calculate();
+            Assert.AreEqual(12.0, sumDifferenceSquares);
+        }
+
     }
 }

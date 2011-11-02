@@ -16,6 +16,18 @@ namespace Recommender.Data
             return reviewer;
         }
 
+        public static Reviewer BuildAllMidScores()
+        {
+            var reviewer = new Reviewer { Name = "Mini" };
+            reviewer.AddReview("Code Complete", 3.0);
+            reviewer.AddReview("C# in Depth", 3.0);
+            reviewer.AddReview("Clean Code", 3.0);
+            reviewer.AddReview("Unit Testing", 3.0);
+            reviewer.AddReview("Joel on Software", 3.0);
+            reviewer.AddReview("Refactoring", 3.0);
+            return reviewer;
+        }
+
         public static Reviewer BuildAllMinScores()
         {
             var reviewer = new Reviewer {Name = "Mini"};
