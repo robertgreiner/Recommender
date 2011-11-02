@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Recommender
 {
-    class Program
+    class SimilarityScoreRunner
     {
         static void Main(string[] args)
         {

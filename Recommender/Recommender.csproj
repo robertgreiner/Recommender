@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="SimilarityScoreRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\SimilarityScoreCommand.cs" />
     <Compile Include="Steps\SumDifferenceSquares.cs" />
