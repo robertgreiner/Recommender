@@ -20,7 +20,7 @@ namespace Recommender
 
         public double Score()
         {
-            var similarReviews = R1.SimilarReviews(R2.Reviews);
+            var similarReviews = R1.FindSimilarReviews(R2.Reviews);
             
             if (similarReviews.Count == 0)
             {
