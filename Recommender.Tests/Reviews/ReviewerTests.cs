@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using System.Linq;
+using NUnit.Framework;
+using Recommender.Data;
 using Recommender.Reviews;
 
 namespace Recommender.Tests.Reviews
@@ -31,6 +33,29 @@ namespace Recommender.Tests.Reviews
         {
             reviewer.AddReview("Clean Code", 5);
             Assert.IsNotEmpty(reviewer.Reviews);
+        }
+
+        [Test]
+        public void ShouldHaveASingleMaximumReview()
+        {
+            var max = ReviewerBuilder.BuildOneReviewMax();
+            Assert.AreEqual(5, max.Reviews.First().Value);
+        }
+
+        [Test]
+        public void TwoSimilarReviewersShouldHaveOneLikeReview()
+        {
+            var r1 = ReviewerBuilder.BuildOneReviewMax();
+            var r2 = ReviewerBuilder.BuildOneReviewMin();
+            Assert.AreEqual(1, r1.SimilarItems(r2.Reviews).Count);
+        }
+
+        [Test]
+        public void ReviewersThatHaveTheSameTasteShouldHaveAllSimilarItems()
+        {
+            var r1 = ReviewerBuilder.BuildReviewer1();
+            var r2 = ReviewerBuilder.BuildReviewer1();
+            Assert.AreEqual(6, r1.SimilarItems(r2.Reviews).Count);
         }
     }
 }
