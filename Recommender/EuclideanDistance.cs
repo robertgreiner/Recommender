@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Recommender.Common;
 using Recommender.Reviews;
 using Recommender.Steps;
@@ -9,6 +10,7 @@ namespace Recommender
     {
         private readonly Reviewer R1;
         private readonly Reviewer R2;
+        private List<string> SimilarReviews;
 
         public EuclideanDistance(Reviewer r1, Reviewer r2)
         {
@@ -18,15 +20,27 @@ namespace Recommender
 
         public double Score()
         {
-            var similarReviews = new FindSimilarReviews(R1.Reviews, R2.Reviews).Calculate();
+            SimilarReviews = new FindSimilarReviews(R1.Reviews, R2.Reviews).Calculate();
             
-            if (similarReviews.Count == 0)
+            if (DoReviewersHaveSimilarReviews())
             {
                 return 0.0;
             }
 
-            var sumDifferenceSquares = new SumDifferenceSquares(similarReviews, R1.Reviews, R2.Reviews).Calculate();
+            var sumDifferenceSquares = new SumDifferenceSquares(SimilarReviews, R1.Reviews, R2.Reviews).Calculate();
+            return NormalizeAnswer(sumDifferenceSquares);
+        }
+
+        private static double NormalizeAnswer(double sumDifferenceSquares)
+        {
             return Math.Round(1 / (1 + sumDifferenceSquares), 3);
         }
+
+        private bool DoReviewersHaveSimilarReviews()
+        {
+            return SimilarReviews.Count == 0;
+        }
+
+       
     }
 }
