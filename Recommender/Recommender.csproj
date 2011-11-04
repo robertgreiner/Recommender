@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\FindSimilarReviews.cs" />
     <Compile Include="Data\ReviewerBuilder.cs" />
     <Compile Include="EuclideanDistance.cs" />
+    <Compile Include="PearsonCorrelation.cs" />
     <Compile Include="Reviews\Reviewer.cs" />
     <Compile Include="SimilarityScore.cs" />
     <Compile Include="SimilarityScoreRunner.cs" />
@@ -52,6 +54,7 @@
     <Compile Include="Steps\SimilarityScoreCommand.cs" />
     <Compile Include="Steps\SumDifferenceSquares.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

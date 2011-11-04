@@ -1,4 +1,5 @@
 ﻿using System;
+using Recommender.Common;
 using Recommender.Reviews;
 using Recommender.Steps;
 
@@ -17,7 +18,7 @@ namespace Recommender
 
         public double Score()
         {
-            var similarReviews = R1.FindSimilarReviews(R2.Reviews);
+            var similarReviews = new FindSimilarReviews(R1.Reviews, R2.Reviews).Calculate();
             
             if (similarReviews.Count == 0)
             {

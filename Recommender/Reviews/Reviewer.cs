@@ -18,9 +18,5 @@ namespace Recommender.Reviews
             Reviews.Add(title, score);
         }
 
-        public List<string> FindSimilarReviews(Dictionary<string, double> compareTo)
-        {
-            return (from r in Reviews where compareTo.ContainsKey(r.Key) select r.Key).ToList();
-        }
     }
 }
