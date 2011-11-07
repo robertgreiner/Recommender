@@ -5,12 +5,12 @@ using System.Text;
 
 namespace Recommender.Steps
 {
-    public class SumSimilarScores : SimilarityScoreCommand
+    public class SumScores : SimilarityScoreCommand
     {
         private readonly List<string> SimilarReviews;
         private readonly Dictionary<string, double> UserReviews;
 
-        public SumSimilarScores(List<string> similarReviews, Dictionary<string, double> userReviews)
+        public SumScores(List<string> similarReviews, Dictionary<string, double> userReviews)
         {
             SimilarReviews = similarReviews;
             UserReviews = userReviews;

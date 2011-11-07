@@ -11,7 +11,7 @@ using Recommender.Steps;
 namespace Recommender.Tests.Steps
 {
     [TestFixture]
-    class SumSquaresOfSimilarScoresTests
+    class SumSquaresTests
     {
 
         private Reviewer r1;
@@ -29,13 +29,13 @@ namespace Recommender.Tests.Steps
         [Test]
         public void ShouldSumTheSquaresOfAllOfTheScoresFromTheFirstUser()
         {
-            Assert.AreEqual(55.0, new SumSquaresOfSimilarScores(similarReviews, r1.Reviews).Calculate());
+            Assert.AreEqual(55.0, new SumSquares(similarReviews, r1.Reviews).Calculate());
         }
 
         [Test]
         public void ShouldSumTheSquaresOfAllOfTheScoresFromTheSecondUser()
         {
-            Assert.AreEqual(69.75, new SumSquaresOfSimilarScores(similarReviews, r2.Reviews).Calculate());
+            Assert.AreEqual(69.75, new SumSquares(similarReviews, r2.Reviews).Calculate());
         }
 
     }

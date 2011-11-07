@@ -53,9 +53,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reviews\ReviewerTests.cs" />
     <Compile Include="Steps\SumProductsTests.cs" />
-    <Compile Include="Steps\SumSquaresOfSimilarScoresTests.cs" />
+    <Compile Include="Steps\SumSquaresTests.cs" />
     <Compile Include="Steps\SumDifferenceSquaresTests.cs" />
-    <Compile Include="Steps\SumSimilarScoresTests.cs" />
+    <Compile Include="Steps\SumScoresTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
