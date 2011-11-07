@@ -52,6 +52,7 @@
     <Compile Include="PearsonCorrelationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reviews\ReviewerTests.cs" />
+    <Compile Include="Steps\SumSquaresOfSimilarScoresTests.cs" />
     <Compile Include="Steps\SumDifferenceSquaresTests.cs" />
     <Compile Include="Steps\SumSimilarScoresTests.cs" />
   </ItemGroup>
