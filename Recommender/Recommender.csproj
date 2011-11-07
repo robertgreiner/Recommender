@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\SimilarityScoreCommand.cs" />
     <Compile Include="Steps\SumDifferenceSquares.cs" />
+    <Compile Include="Steps\SumSimilarScores.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
