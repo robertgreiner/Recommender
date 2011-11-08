@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using NUnit.Framework;
 using Recommender.Common;
 using Recommender.Data;
+using Recommender.Instructions;
 using Recommender.Reviews;
-using Recommender.Steps;
 
-namespace Recommender.Tests.Steps
+namespace Recommender.Tests.Instructions
 {
     [TestFixture]
     class SumScoresTests

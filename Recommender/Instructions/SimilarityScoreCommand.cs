@@ -1,4 +1,4 @@
-﻿namespace Recommender.Steps
+﻿namespace Recommender.Instructions
 {
     interface SimilarityScoreCommand
     {

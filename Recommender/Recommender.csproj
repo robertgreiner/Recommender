@@ -51,11 +51,11 @@
     <Compile Include="SimilarityScore.cs" />
     <Compile Include="SimilarityScoreRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Steps\SimilarityScoreCommand.cs" />
-    <Compile Include="Steps\SumProducts.cs" />
-    <Compile Include="Steps\SumSquares.cs" />
-    <Compile Include="Steps\SumDifferenceSquares.cs" />
-    <Compile Include="Steps\SumScores.cs" />
+    <Compile Include="Instructions\SimilarityScoreCommand.cs" />
+    <Compile Include="Instructions\SumProducts.cs" />
+    <Compile Include="Instructions\SumSquares.cs" />
+    <Compile Include="Instructions\SumDifferenceSquares.cs" />
+    <Compile Include="Instructions\SumScores.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

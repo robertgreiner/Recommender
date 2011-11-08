@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Recommender.Steps
+namespace Recommender.Instructions
 {
     public class SumDifferenceSquares : SimilarityScoreCommand
     {

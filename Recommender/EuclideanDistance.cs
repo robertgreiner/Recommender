@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Recommender.Common;
+using Recommender.Instructions;
 using Recommender.Reviews;
-using Recommender.Steps;
 
 namespace Recommender
 {

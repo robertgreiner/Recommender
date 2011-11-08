@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
 using Recommender.Data;
-using Recommender.Steps;
+using Recommender.Instructions;
 
-namespace Recommender.Tests.Steps
+namespace Recommender.Tests.Instructions
 {
     [TestFixture]
     class SumDifferenceSquaresTests
