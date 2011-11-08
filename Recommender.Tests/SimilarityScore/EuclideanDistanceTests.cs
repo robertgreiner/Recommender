@@ -1,7 +1,8 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using Recommender.Data;
+using Recommender.SimilarityScore;
 
-namespace Recommender.Tests
+namespace Recommender.Tests.SimilarityScore
 {
     [TestFixture]
     class EuclideanDistanceTests

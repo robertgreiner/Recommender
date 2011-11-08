@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Recommender.Common;
 using Recommender.Instructions;
 using Recommender.Reviews;
 
-namespace Recommender
+namespace Recommender.SimilarityScore
 {
     public class EuclideanDistance : SimilarityScore
     {

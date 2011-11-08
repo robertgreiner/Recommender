@@ -45,10 +45,7 @@
   <ItemGroup>
     <Compile Include="Common\FindSimilarReviews.cs" />
     <Compile Include="Data\ReviewerBuilder.cs" />
-    <Compile Include="EuclideanDistance.cs" />
-    <Compile Include="PearsonCorrelation.cs" />
     <Compile Include="Reviews\Reviewer.cs" />
-    <Compile Include="SimilarityScore.cs" />
     <Compile Include="SimilarityScoreRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Instructions\SimilarityScoreCommand.cs" />
@@ -56,6 +53,9 @@
     <Compile Include="Instructions\SumSquares.cs" />
     <Compile Include="Instructions\SumDifferenceSquares.cs" />
     <Compile Include="Instructions\SumScores.cs" />
+    <Compile Include="SimilarityScore\EuclideanDistance.cs" />
+    <Compile Include="SimilarityScore\PearsonCorrelation.cs" />
+    <Compile Include="SimilarityScore\SimilarityScore.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

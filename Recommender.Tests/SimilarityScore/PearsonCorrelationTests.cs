@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using NUnit.Framework;
 using Recommender.Data;
+using Recommender.SimilarityScore;
 
-namespace Recommender.Tests
+namespace Recommender.Tests.SimilarityScore
 {
     [TestFixture]
     class PearsonCorrelationTests

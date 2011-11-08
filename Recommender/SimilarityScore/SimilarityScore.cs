@@ -1,4 +1,4 @@
-﻿namespace Recommender
+namespace Recommender.SimilarityScore
 {
     interface SimilarityScore
     {

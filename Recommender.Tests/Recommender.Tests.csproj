@@ -48,14 +48,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\FindSimilarReviewsTests.cs" />
-    <Compile Include="EuclideanDistanceTests.cs" />
-    <Compile Include="PearsonCorrelationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reviews\ReviewerTests.cs" />
     <Compile Include="Instructions\SumProductsTests.cs" />
     <Compile Include="Instructions\SumSquaresTests.cs" />
     <Compile Include="Instructions\SumDifferenceSquaresTests.cs" />
     <Compile Include="Instructions\SumScoresTests.cs" />
+    <Compile Include="SimilarityScore\EuclideanDistanceTests.cs" />
+    <Compile Include="SimilarityScore\PearsonCorrelationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

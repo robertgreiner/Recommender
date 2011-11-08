@@ -1,5 +1,6 @@
 ﻿using System;
 using Recommender.Data;
+using Recommender.SimilarityScore;
 
 namespace Recommender
 {
