@@ -95,10 +95,10 @@ namespace Recommender.Data
         public static Reviewer BuildReviewer3()
         {
             var reviewer = new Reviewer {Name = "Michael"};
-            reviewer.AddReview("Code Complete", 2.5);
-            reviewer.AddReview("C# in Depth", 3.0);
-            reviewer.AddReview("Unit Testing", 3.5);
-            reviewer.AddReview("Refactoring", 4.0);
+            reviewer.AddReview("Code Complete", 1.5);
+            reviewer.AddReview("C# in Depth", 1.0);
+            reviewer.AddReview("Unit Testing", 4.5);
+            reviewer.AddReview("Refactoring", 5.0);
             return reviewer;
         }
 
