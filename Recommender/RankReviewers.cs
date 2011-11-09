@@ -18,9 +18,13 @@ namespace Recommender
 
         public IOrderedEnumerable<KeyValuePair<Reviewer, double>> Rank()
         {
-            var scores = Reviewers.ToDictionary(r => r, r => new PearsonCorrelation(CurrentUser, r).Score());
-
+            var scores = Reviewers.ToDictionary(r => r, CalculateSimilarityScore);
             return scores.OrderByDescending(key => key.Value);
+        }
+
+        private double CalculateSimilarityScore(Reviewer reviewer)
+        {
+            return new PearsonCorrelation(CurrentUser, reviewer).Score();
         }
     }
 }
