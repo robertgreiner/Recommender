@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Recommender.Data;
+using Recommender.Reviews;
 using Recommender.SimilarityScore;
 
 namespace Recommender
@@ -13,6 +15,8 @@ namespace Recommender
             Console.WriteLine();
             RunEuclideanDistanceWithHighScore();
             RunPearsonCorrelationWithHighScore();
+            Console.WriteLine();
+            ReviewersMostSimilarToMe();
             Console.ReadKey();
         }
 
@@ -50,6 +54,29 @@ namespace Recommender
             var pearsonCorrelation = new PearsonCorrelation(r1, r2);
 
             Console.WriteLine("The Pearson Correlation between {0} and {1} is: {2}", r1.Name, r2.Name, pearsonCorrelation.Score());
+        }
+
+        private static void ReviewersMostSimilarToMe()
+        {
+            Console.WriteLine("Ranked reviewers most similar to me.");
+            var currentUser = ReviewerBuilder.BuildMyReviews();
+            var reviewers = new List<Reviewer>
+                        {
+                            {ReviewerBuilder.BuildReviewer1()},
+                            {ReviewerBuilder.BuildReviewer2()},
+                            {ReviewerBuilder.BuildReviewer3()},
+                            {ReviewerBuilder.BuildReviewer4()},
+                            {ReviewerBuilder.BuildReviewer5()},
+                            {ReviewerBuilder.BuildAllMaxScores()},
+                            {ReviewerBuilder.BuildAllMidScores()},
+                            {ReviewerBuilder.BuildAllMinScores()}
+                        };
+            var sortedReviewers = new RankReviewers(currentUser, reviewers).Rank();
+
+            foreach (var r in sortedReviewers)
+            {
+                Console.WriteLine("{0}: {1}", r.Key.Name, r.Value);
+            }
         }
     }
 }

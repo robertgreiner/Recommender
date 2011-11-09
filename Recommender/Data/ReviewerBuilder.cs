@@ -18,7 +18,7 @@ namespace Recommender.Data
 
         public static Reviewer BuildAllMidScores()
         {
-            var reviewer = new Reviewer { Name = "Mini" };
+            var reviewer = new Reviewer { Name = "Swish" };
             reviewer.AddReview("Code Complete", 3.0);
             reviewer.AddReview("C# in Depth", 3.0);
             reviewer.AddReview("Clean Code", 3.0);
@@ -126,7 +126,19 @@ namespace Recommender.Data
 
         public static Reviewer BuildReviewerWithNoReviews()
         {
-            var reviewer = new Reviewer {Name = "Robert"};
+            var reviewer = new Reviewer {Name = "Sam"};
+            return reviewer;
+        }
+
+        public static Reviewer BuildMyReviews()
+        {
+            var reviewer = new Reviewer { Name = "Robert" };
+            reviewer.AddReview("Code Complete", 4.5);
+            reviewer.AddReview("C# in Depth", 5.0);
+            reviewer.AddReview("Clean Code", 4.0);
+            reviewer.AddReview("Unit Testing", 4.5);
+            reviewer.AddReview("Joel on Software", 4.0);
+            reviewer.AddReview("Refactoring", 5.0);
             return reviewer;
         }
     }
