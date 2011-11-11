@@ -30,5 +30,21 @@ namespace Recommender.Tests.Common
             var r2 = ReviewerBuilder.BuildReviewer1();
             Assert.AreEqual(6, new FindSimilarReviews(r1.Reviews, r2.Reviews).Calculate().Count);
         }
+
+        [Test]
+        public void ReviewsWithAScoreOfZeroShouldBeIgnored()
+        {
+            var r1 = ReviewerBuilder.BuildReviewer1();
+            var empty = ReviewerBuilder.BuildReviewerWithInvalidReviews();
+            Assert.AreEqual(0, new FindSimilarReviews(r1.Reviews, empty.Reviews).Calculate().Count);
+        }
+
+        [Test]
+        public void ReviewsWithAScoreOfZeroShouldBeIgnoredSwitchUsers()
+        {
+            var r1 = ReviewerBuilder.BuildReviewer1();
+            var empty = ReviewerBuilder.BuildReviewerWithInvalidReviews();
+            Assert.AreEqual(0, new FindSimilarReviews(empty.Reviews, r1.Reviews).Calculate().Count);
+        }
     }
 }

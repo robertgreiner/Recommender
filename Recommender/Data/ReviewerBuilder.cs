@@ -31,12 +31,12 @@ namespace Recommender.Data
         public static Reviewer BuildAllMinScores()
         {
             var reviewer = new Reviewer {Name = "Mini"};
-            reviewer.AddReview("Code Complete", 0.0);
-            reviewer.AddReview("C# in Depth", 0.0);
-            reviewer.AddReview("Clean Code", 0.0);
-            reviewer.AddReview("Unit Testing", 0.0);
-            reviewer.AddReview("Joel on Software", 0.0);
-            reviewer.AddReview("Refactoring", 0.0);
+            reviewer.AddReview("Code Complete", 1.0);
+            reviewer.AddReview("C# in Depth", 1.0);
+            reviewer.AddReview("Clean Code", 1.0);
+            reviewer.AddReview("Unit Testing", 1.0);
+            reviewer.AddReview("Joel on Software", 1.0);
+            reviewer.AddReview("Refactoring", 1.0);
             return reviewer;
         }
 
@@ -57,7 +57,7 @@ namespace Recommender.Data
         public static Reviewer BuildOneReviewMin()
         {
             var reviewer = new Reviewer {Name = "Mini"};
-            reviewer.AddReview("C# in Depth", 0.0);
+            reviewer.AddReview("C# in Depth", 1.0);
             return reviewer;
         }
 
@@ -139,6 +139,14 @@ namespace Recommender.Data
             reviewer.AddReview("Unit Testing", 4.5);
             reviewer.AddReview("Joel on Software", 4.0);
             reviewer.AddReview("Refactoring", 5.0);
+            return reviewer;
+        }
+
+        public static Reviewer BuildReviewerWithInvalidReviews()
+        {
+            var reviewer = new Reviewer { Name = "Invalid Reviews" };
+            reviewer.AddReview("Code Complete", 0.0);
+            reviewer.AddReview("C# in Depth", -2.0);
             return reviewer;
         }
     }
