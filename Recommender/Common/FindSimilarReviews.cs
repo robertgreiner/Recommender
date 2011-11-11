@@ -16,7 +16,12 @@ namespace Recommender.Common
 
         public List<string> Calculate()
         {
-            return (from r in FirstUserReviews where DoesReviewExistInSecondUserReviews(r) && IsReviewValid(r.Value) && IsReviewValid(SecondUserReviews[r.Key]) select r.Key).ToList();
+            return (from r in FirstUserReviews where ShouldCountSimilarReview(r) select r.Key).ToList();
+        }
+
+        private bool ShouldCountSimilarReview(KeyValuePair<string, double> r)
+        {
+            return DoesReviewExistInSecondUserReviews(r) && IsReviewValid(r.Value) && IsReviewValid(SecondUserReviews[r.Key]);
         }
 
         private static bool IsReviewValid(double value)
