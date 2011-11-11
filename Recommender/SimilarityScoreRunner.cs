@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Recommender.Common;
 using Recommender.Data;
 using Recommender.Reviews;
 using Recommender.SimilarityScore;

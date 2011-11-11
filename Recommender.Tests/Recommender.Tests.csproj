@@ -48,8 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\FindSimilarReviewsTests.cs" />
+    <Compile Include="Common\RankReviewersTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RankReviewersTests.cs" />
     <Compile Include="Reviews\ReviewerTests.cs" />
     <Compile Include="Instructions\SumProductsTests.cs" />
     <Compile Include="Instructions\SumSquaresTests.cs" />

@@ -3,7 +3,7 @@ using System.Linq;
 using Recommender.Reviews;
 using Recommender.SimilarityScore;
 
-namespace Recommender
+namespace Recommender.Common
 {
     public class RankReviewers
     {

@@ -44,8 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\FindSimilarReviews.cs" />
+    <Compile Include="Common\RankReviewers.cs" />
     <Compile Include="Data\ReviewerBuilder.cs" />
-    <Compile Include="RankReviewers.cs" />
     <Compile Include="Reviews\Reviewer.cs" />
     <Compile Include="SimilarityScoreRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

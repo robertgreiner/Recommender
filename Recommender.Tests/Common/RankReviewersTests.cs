@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using Recommender.Common;
 using Recommender.Data;
 using Recommender.Reviews;
 
-namespace Recommender.Tests
+namespace Recommender.Tests.Common
 {
     [TestFixture]
     class RankReviewersTests
