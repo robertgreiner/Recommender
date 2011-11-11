@@ -124,6 +124,30 @@ namespace Recommender.Data
             return reviewer;
         }
 
+        public static Reviewer BuildReviewer6()
+        {
+            var reviewer = new Reviewer { Name = "Luke" };
+            reviewer.AddReview("Code Complete", 2.5);
+            reviewer.AddReview("C# in Depth", 3.5);
+            reviewer.AddReview("Clean Code", 3.0);
+            reviewer.AddReview("Unit Testing", 3.5);
+            reviewer.AddReview("Joel on Software", 2.5);
+            reviewer.AddReview("C# for Dummies", 3.0);
+            return reviewer;
+        }
+
+        public static Reviewer BuildReviewer7()
+        {
+            var reviewer = new Reviewer { Name = "Paul" };
+            reviewer.AddReview("Code Complete", 3.0);
+            reviewer.AddReview("C# in Depth", 3.5);
+            reviewer.AddReview("Clean Code", 1.5);
+            reviewer.AddReview("Unit Testing", 5.0);
+            reviewer.AddReview("Joel on Software", 3.5);
+            reviewer.AddReview("C# for Dummies", 3.0);
+            return reviewer;
+        }
+
         public static Reviewer BuildReviewerWithNoReviews()
         {
             var reviewer = new Reviewer {Name = "Sam"};

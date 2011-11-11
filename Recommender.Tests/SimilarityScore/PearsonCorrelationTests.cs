@@ -33,9 +33,23 @@ namespace Recommender.Tests.SimilarityScore
         }
 
         [Test]
-        public void TwoReviewersWithSomeSimilarReviewsShouldHaveAScoreBetweenZeroAndOne()
+        public void TwoReviewersWithSomeSimilarReviewsShouldHaveANegativeScore()
         {
             Assert.AreEqual(-0.777, pearsonCorrelationScore.Score());
+        }
+
+        [Test]
+        public void TwoReviewersWithSomeSimilarReviewsShouldHaveAPostiveScore()
+        {
+            pearsonCorrelationScore = new PearsonCorrelation(ReviewerBuilder.BuildReviewer6(), ReviewerBuilder.BuildReviewer7());
+            Assert.AreEqual(0.396, pearsonCorrelationScore.Score());
+        }
+
+        [Test]
+        public void TwoReviewersWithSomeSimilarReviewsShouldHaveTheSameScoreRegardlessOfOrder()
+        {
+            pearsonCorrelationScore = new PearsonCorrelation(ReviewerBuilder.BuildReviewer7(), ReviewerBuilder.BuildReviewer6());
+            Assert.AreEqual(0.396, pearsonCorrelationScore.Score());
         }
 
         [Test]
