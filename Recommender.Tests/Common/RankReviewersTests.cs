@@ -46,27 +46,27 @@ namespace Recommender.Tests.Common
         }
 
         [Test]
-        public void TheMostSimilarReviewerShouldBeR4()
+        public void TheMostSimilarReviewerShouldBeCarol()
         {
-            Assert.AreEqual(reviewers.ElementAt(2).Name, sortedReviewers.ElementAt(0).Key.Name);
+            Assert.AreEqual(reviewers.ElementAt(2).Name, "Carol");
         }
 
         [Test]
-        public void TheSecondRankedReviewerShouldBeR5()
+        public void TheSecondRankedReviewerShouldBeShelby()
         {
-            Assert.AreEqual(reviewers.ElementAt(3).Name, sortedReviewers.ElementAt(1).Key.Name);
+            Assert.AreEqual(reviewers.ElementAt(3).Name, "Shelby");
         }
 
         [Test]
-        public void TheThirdRankedReviewerShouldBeR2()
+        public void TheThirdRankedReviewerShouldBeSeymour()
         {
-            Assert.AreEqual(reviewers.ElementAt(0).Name, sortedReviewers.ElementAt(2).Key.Name);
+            Assert.AreEqual(reviewers.ElementAt(0).Name, "Seymour");
         }
 
         [Test]
-        public void TheLeastSimilarReviewerShouldBeR3()
+        public void TheLeastSimilarReviewerShouldBeMichael()
         {
-            Assert.AreEqual(reviewers.ElementAt(1).Name, sortedReviewers.ElementAt(3).Key.Name);
+            Assert.AreEqual(reviewers.ElementAt(1).Name, "Michael");
         }
     }
 }

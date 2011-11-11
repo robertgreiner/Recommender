@@ -18,7 +18,7 @@ namespace Recommender.Tests.SimilarityScore
         [Test]
         public void TwoReviewersWithSomeSimilarReviewsShouldHaveAScoreBetweenZeroAndOne()
         {
-            Assert.AreEqual(0.148, euclideanDistance.Score());
+            Assert.AreEqual(0.037, euclideanDistance.Score());
         }
 
         [Test]

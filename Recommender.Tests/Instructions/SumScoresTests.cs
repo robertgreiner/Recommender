@@ -34,7 +34,7 @@ namespace Recommender.Tests.Instructions
         [Test]
         public void ShouldSumAllOfTheScoresFromTheFirstUser()
         {
-            Assert.AreEqual(18.0, new SumScores(similarReviews, r1.Reviews).Calculate());
+            Assert.AreEqual(15.0, new SumScores(similarReviews, r1.Reviews).Calculate());
         }
 
         [Test]

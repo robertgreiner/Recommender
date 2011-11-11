@@ -26,7 +26,7 @@ namespace Recommender.Tests.Instructions
         [Test]
         public void ShouldSumTheProductsOfBothReviewers()
         {
-            Assert.AreEqual(59.5, new SumProducts(similarReviews, r1.Reviews, r2.Reviews).Calculate());
+            Assert.AreEqual(43.75, new SumProducts(similarReviews, r1.Reviews, r2.Reviews).Calculate());
         }
     }
 }

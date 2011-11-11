@@ -27,7 +27,7 @@ namespace Recommender.Tests.Instructions
         [Test]
         public void ShouldSumTheSquaresOfAllOfTheScoresFromTheFirstUser()
         {
-            Assert.AreEqual(55.0, new SumSquares(similarReviews, r1.Reviews).Calculate());
+            Assert.AreEqual(44.0, new SumSquares(similarReviews, r1.Reviews).Calculate());
         }
 
         [Test]

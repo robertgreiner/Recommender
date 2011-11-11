@@ -35,17 +35,16 @@ namespace Recommender.Tests.SimilarityScore
         [Test]
         public void TwoReviewersWithSomeSimilarReviewsShouldHaveAScoreBetweenZeroAndOne()
         {
-            Assert.AreEqual(0.396, pearsonCorrelationScore.Score());
+            Assert.AreEqual(-0.777, pearsonCorrelationScore.Score());
         }
 
         [Test]
         public void TestValuesOfReviewers()
         {
             var currentUser = ReviewerBuilder.BuildReviewer1();
-            Assert.AreEqual(0.396, new PearsonCorrelation(currentUser, ReviewerBuilder.BuildReviewer2()).Score());
-            Assert.AreEqual(-0.141, new PearsonCorrelation(currentUser, ReviewerBuilder.BuildReviewer3()).Score());
-            Assert.AreEqual(0.567, new PearsonCorrelation(currentUser, ReviewerBuilder.BuildReviewer4()).Score());
-            Assert.AreEqual(0.423, new PearsonCorrelation(currentUser, ReviewerBuilder.BuildReviewer5()).Score());
+            Assert.AreEqual(0.211, new PearsonCorrelation(currentUser, ReviewerBuilder.BuildReviewer3()).Score());
+            Assert.AreEqual(-0.343, new PearsonCorrelation(currentUser, ReviewerBuilder.BuildReviewer4()).Score());
+            Assert.AreEqual(-0.832, new PearsonCorrelation(currentUser, ReviewerBuilder.BuildReviewer5()).Score());
         }
     }
 }
