@@ -67,10 +67,7 @@ namespace Recommender
                             {ReviewerBuilder.BuildReviewer2()},
                             {ReviewerBuilder.BuildReviewer3()},
                             {ReviewerBuilder.BuildReviewer4()},
-                            {ReviewerBuilder.BuildReviewer5()},
-                            {ReviewerBuilder.BuildAllMaxScores()},
-                            {ReviewerBuilder.BuildAllMidScores()},
-                            {ReviewerBuilder.BuildAllMinScores()}
+                            {ReviewerBuilder.BuildReviewer5()}
                         };
             var sortedReviewers = new RankReviewers(currentUser, reviewers).Rank();
 
