@@ -1,4 +1,5 @@
-﻿using Recommender.Reviews;
+﻿using System.Collections.Generic;
+using Recommender.Reviews;
 
 namespace Recommender.Data
 {
@@ -172,6 +173,17 @@ namespace Recommender.Data
             reviewer.AddReview("Code Complete", 0.0);
             reviewer.AddReview("C# in Depth", -2.0);
             return reviewer;
+        }
+
+        public static List<Reviewer> BuildReviewers()
+        {
+            return new List<Reviewer>
+                        {
+                            {BuildReviewer2()},
+                            {BuildReviewer3()},
+                            {BuildReviewer4()},
+                            {BuildReviewer5()},
+                        };
         }
     }
 }

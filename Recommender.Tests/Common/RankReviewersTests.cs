@@ -18,20 +18,8 @@ namespace Recommender.Tests.Common
         public void SetUp()
         {
             var currentUser = BuildCurrentUser();
-            reviewers = BuildReviewers();
-
-            sortedReviewers = new RankReviewers(BuildCurrentUser(), BuildReviewers()).Rank();
-        }
-
-        private List<Reviewer> BuildReviewers()
-        {
-            return new List<Reviewer>
-                        {
-                            {ReviewerBuilder.BuildReviewer2()},
-                            {ReviewerBuilder.BuildReviewer3()},
-                            {ReviewerBuilder.BuildReviewer4()},
-                            {ReviewerBuilder.BuildReviewer5()},
-                        };
+            reviewers = ReviewerBuilder.BuildReviewers();
+            sortedReviewers = new RankReviewers(currentUser, reviewers).Rank();
         }
 
         private static Reviewer BuildCurrentUser()
