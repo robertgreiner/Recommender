@@ -35,16 +35,16 @@ namespace Recommender.Tests.Common
         public void ReviewsWithAScoreOfZeroShouldBeIgnored()
         {
             var r1 = ReviewerBuilder.BuildReviewer1();
-            var empty = ReviewerBuilder.BuildReviewerWithInvalidReviews();
-            Assert.AreEqual(0, new FindSimilarReviews(r1.Reviews, empty.Reviews).Calculate().Count);
+            var invalidReviewer = ReviewerBuilder.BuildReviewerWithInvalidReviews();
+            Assert.AreEqual(0, new FindSimilarReviews(r1.Reviews, invalidReviewer.Reviews).Calculate().Count);
         }
 
         [Test]
         public void ReviewsWithAScoreOfZeroShouldBeIgnoredSwitchUsers()
         {
-            var r1 = ReviewerBuilder.BuildReviewer1();
-            var empty = ReviewerBuilder.BuildReviewerWithInvalidReviews();
-            Assert.AreEqual(0, new FindSimilarReviews(empty.Reviews, r1.Reviews).Calculate().Count);
+            var r1 = ReviewerBuilder.BuildAReviewerThatReviewedSomethingUnique();
+            var invalidReviewer = ReviewerBuilder.BuildReviewerWithInvalidReviews();
+            Assert.AreEqual(0, new FindSimilarReviews(invalidReviewer.Reviews, r1.Reviews).Calculate().Count);
         }
     }
 }
