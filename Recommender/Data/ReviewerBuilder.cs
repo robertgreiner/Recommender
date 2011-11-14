@@ -174,6 +174,14 @@ namespace Recommender.Data
             reviewer.AddReview("C# in Depth", -2.0);
             return reviewer;
         }
+        
+        public static Reviewer BuildReviewerThatNeedsRecommendations()
+        {
+            var reviewer = new Reviewer { Name = "JoeProgrammer" };
+            reviewer.AddReview("Code Complete", 3.0);
+            reviewer.AddReview("C# in Depth", 4.5);
+            return reviewer;
+        }
 
         public static List<Reviewer> BuildReviewers()
         {

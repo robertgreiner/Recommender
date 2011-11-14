@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\FindOppositeReviews.cs" />
     <Compile Include="Common\FindSimilarReviews.cs" />
     <Compile Include="Common\RankReviewers.cs" />
+    <Compile Include="Common\RecommendItems.cs" />
     <Compile Include="Data\ReviewerBuilder.cs" />
     <Compile Include="Reviews\Reviewer.cs" />
     <Compile Include="SimilarityScoreRunner.cs" />
