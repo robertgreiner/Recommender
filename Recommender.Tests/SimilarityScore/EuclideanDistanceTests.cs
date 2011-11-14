@@ -22,6 +22,14 @@ namespace Recommender.Tests.SimilarityScore
         }
 
         [Test]
+        public void ReviewersWithIdenticalReviewsShouldHaveASimilarityScoreOfOne()
+        {
+            var r = ReviewerBuilder.BuildReviewer1();
+            euclideanDistance = new EuclideanDistance(r, r);
+            Assert.AreEqual(1.0, euclideanDistance.Score());
+        }
+
+        [Test]
         public void TwoReviewersWithSomeSimilarReviewsShouldHaveAPositiveScore()
         {
             euclideanDistance = new EuclideanDistance(ReviewerBuilder.BuildReviewer6(), ReviewerBuilder.BuildReviewer7());
@@ -50,6 +58,14 @@ namespace Recommender.Tests.SimilarityScore
             var r1 = ReviewerBuilder.BuildReviewer1();
             euclideanDistance = new EuclideanDistance(r1, r1);
             Assert.AreEqual(1.0, euclideanDistance.Score());
+        }
+
+        [Test]
+        public void ShouldReturnASimilarityScoreOfZeroWhenBothUsersHaveNoSimilarReviews()
+        {
+            var r = ReviewerBuilder.BuildReviewerWithNoReviews();
+            euclideanDistance = new EuclideanDistance(r, r);
+            Assert.AreEqual(0.0, euclideanDistance.Score());
         }
     }
 }

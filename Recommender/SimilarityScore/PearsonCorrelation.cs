@@ -22,7 +22,7 @@ namespace Recommender.SimilarityScore
         {
             SimilarReviews = new FindSimilarReviews(R1.Reviews, R2.Reviews).Calculate();
 
-            if (DoReviewersHaveSimilarReviews())
+            if (ReviewersHaveNoSimilarReviews())
             {
                 return 0.0;
             }
@@ -31,8 +31,7 @@ namespace Recommender.SimilarityScore
 
             var sumR1 = new SumScores(SimilarReviews, R1.Reviews).Calculate();
             var sumR2 = new SumScores(SimilarReviews, R2.Reviews).Calculate();
-
-
+            
             var sumR1Sq = new SumSquares(SimilarReviews, R1.Reviews).Calculate();
             var sumR2Sq = new SumSquares(SimilarReviews, R2.Reviews).Calculate();
 
@@ -51,7 +50,7 @@ namespace Recommender.SimilarityScore
             return Math.Round(answer, 3);
         }
 
-        private bool DoReviewersHaveSimilarReviews()
+        private bool ReviewersHaveNoSimilarReviews()
         {
             return SimilarReviews.Count == 0;
         }

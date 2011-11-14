@@ -22,7 +22,7 @@ namespace Recommender.SimilarityScore
         {
             SimilarReviews = new FindSimilarReviews(R1.Reviews, R2.Reviews).Calculate();
             
-            if (DoReviewersHaveSimilarReviews())
+            if (ReviewersHaveNoSimilarReviews())
             {
                 return 0.0;
             }
@@ -36,7 +36,7 @@ namespace Recommender.SimilarityScore
             return Math.Round(1 / (1 + sumDifferenceSquares), 3);
         }
 
-        private bool DoReviewersHaveSimilarReviews()
+        public bool ReviewersHaveNoSimilarReviews()
         {
             return SimilarReviews.Count == 0;
         }
