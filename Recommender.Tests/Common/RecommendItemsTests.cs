@@ -25,10 +25,27 @@ namespace Recommender.Tests.Common
         }
 
         [Test]
-        public void ShouldRecommendAnItem()
+        public void ShouldRecommendSomeItems()
         {
             var r = new RecommendItems(currentUser, reviewers).Calculate();
             Assert.AreEqual(4, r.Count);
+        }
+
+        [Test]
+        public void ShouldOrderRecommendationsBasedOnSimilarityScore()
+        {
+            currentUser = ReviewerBuilder.BuildReviewerThatNeedsRecommendations();
+            reviewers = new List<Reviewer> {ReviewerBuilder.BuildMyReviews()};
+            var r = new RecommendItems(currentUser, reviewers).Calculate();
+            Assert.AreEqual("Refactoring", r.First());
+        }
+
+        [Test]
+        public void ShouldNotMakeRecommendationsIfUsersHaveNoSimilarReviews()
+        {
+            currentUser = ReviewerBuilder.BuildAReviewerThatReviewedSomethingUnique();
+            var r = new RecommendItems(currentUser, reviewers).Calculate();
+            Assert.AreEqual(0, r.Count);
         }
     }
 }

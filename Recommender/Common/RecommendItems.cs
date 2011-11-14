@@ -21,27 +21,46 @@ namespace Recommender.Common
 
         public List<string> Calculate()
         {
-            var recommendations = new HashSet<string>();
+            var scores = new Dictionary<string, double>();
+            var count = new Dictionary<string, double>();
+
             foreach (var r in Reviewers)
             {
 
-                var score = new EuclideanDistance(CurrentUser, r).Score();
-                if (score <= 0)
+                var similarityScore = new EuclideanDistance(CurrentUser, r).Score();
+                if (similarityScore <= 0)
                 {
                     continue;
                 }
                 var oppositeItems = new FindOppositeReviews(CurrentUser.Reviews, r.Reviews).Calculate();
 
-                //TODO: Right now, this method recommends all items not reviewed by the current user.
-                //Next, I will calculate a weighted average for each item and order the recommended items accordingly.
-                //Calculated weighted score => r.Reviews[item] * score
                 foreach (var item in oppositeItems)
                 {
-                    recommendations.Add(item);
+                    var weightedScore = r.Reviews[item] * similarityScore;
+                    if (scores.ContainsKey(item))
+                    {
+                        count[item]++;
+                        scores[item] += weightedScore;
+                    }
+                    else
+                    {
+                        scores.Add(item, weightedScore);    
+                        count.Add(item, 1);
+                    }
                 }
+                
             }
 
-            return recommendations.ToList();
-        } 
+            var sortedRecommendations = CalculateSortedRecommendations(scores, count);
+            return sortedRecommendations.Keys.ToList();
+        }
+
+        private static Dictionary<string, double> CalculateSortedRecommendations(Dictionary<string, double> scores, Dictionary<string, double> count)
+        {
+            var recommendations = scores.Keys.ToDictionary(item => item, item => scores[item] / count[item]);
+            var sortedRecommendations = recommendations.OrderByDescending(key => key.Value).ToDictionary(item => item.Key,
+                                                                                                         item => item.Value);
+            return sortedRecommendations;
+        }
     }
 }
