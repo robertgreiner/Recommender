@@ -37,9 +37,8 @@ namespace Recommender.SimilarityScore
 
             var pSum = new SumProducts(SimilarReviews, R1.Reviews, R2.Reviews).Calculate();
 
-            var num = pSum - (sumR1 * sumR2 / n);
-
-            var den = Math.Sqrt((sumR1Sq - Math.Pow(sumR1, 2) / n) * (sumR2Sq - Math.Pow(sumR2, 2) / n));
+            var num = Covariance(sumR1, sumR2, pSum, n);
+            var den = Math.Sqrt(StandardDeviation(sumR1, sumR1Sq, n) * StandardDeviation(sumR2, sumR2Sq, n));
 
             if (den == 0.0)
             {
@@ -48,6 +47,16 @@ namespace Recommender.SimilarityScore
 
             var answer = num / den;
             return Math.Round(answer, 3);
+        }
+
+        private static double Covariance(double sumR1, double sumR2, double sumOfProducts, int n)
+        {
+            return sumOfProducts - (sumR1 * sumR2 / n);
+        }
+
+        private static double StandardDeviation(double sum, double sumOfSquares, int numberOfItems)
+        {
+            return (sumOfSquares - Math.Pow(sum, 2) / numberOfItems);
         }
 
         private bool ReviewersHaveNoSimilarReviews()
